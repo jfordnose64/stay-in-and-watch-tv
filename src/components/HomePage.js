@@ -22,32 +22,24 @@ const HomePage = () => {
 
   return (
     <Router>
-      <div>
-        <header>
-          <h1>Stay Home and Watch Tv</h1>
-        </header>
-        <article>
-          <h2>Top Rated Movies</h2>
-          <h3>
-            {topMovies.map(movies => {
-              return (
-                <li className="top-movies">
-                  <header key={movies.id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
-                      alt="Movie Poster"
-                    />
-                    <h3>{movies.original_name}</h3>
-                    <p>{movies.overview}</p>
-                    <Link to="/tv">Cast</Link>
-                    <Route exact path="/tv" component={CastPage}></Route>
-                  </header>
-                </li>
-              )
-            })}
-          </h3>
-        </article>
-      </div>
+      <h3>
+        {topMovies.map(movies => {
+          return (
+            <li className="top-movies">
+              <header key={movies.id}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                  alt="Movie Poster"
+                />
+                <h3>{movies.original_name}</h3>
+                <p className="movie-desc">{movies.overview}</p>
+                <Link to="/tv">Cast</Link>
+                <Route exact path="/tv" component={CastPage}></Route>
+              </header>
+            </li>
+          )
+        })}
+      </h3>
     </Router>
   )
 }
