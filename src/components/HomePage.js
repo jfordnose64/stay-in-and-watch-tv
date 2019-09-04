@@ -23,7 +23,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <Router>
+    <>
       <article className="randomMovie">
         <img
           src={`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`}
@@ -43,16 +43,13 @@ const HomePage = () => {
                 <p>{movies.id}</p>
                 <h3>{movies.original_name}</h3>
                 <p className="movie-desc">{movies.overview}</p>
-                <Link to={{ pathname: '/tv', props: [{ topMovies }] }}>
-                  View The Cast
-                </Link>
-                <Route exact path="/tv" component={CastPage}></Route>
+                <Link to={`/tv/${movies.id}`}>View The Cast</Link>
               </header>
             </li>
           )
         })}
       </h3>
-    </Router>
+    </>
   )
 }
 //api key 6ace706710ef6a37e0b50b31f5814c90
